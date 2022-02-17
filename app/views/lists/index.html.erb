@@ -2,8 +2,8 @@
   <h1 class="text-light">All Lists(<%= @lists.count %>)</h1>
   <%= link_to "Add list", new_list_path, class: "btn btn-primary ms-3 align-self-center" %>
 </div>
-<div data-controller="list">
-  <ul class="cards ps-0" data-target="list.grid">
+<div data-controller="list" class="text-center">
+  <ul class="cards ps-0 collapsed" data-target="list.grid">
     <% @lists.each do |list| %>
       <div class="card text-center d-flex align-items-center justify-content-center overlay p-0" style="min-height: 200px; width: 250px; background-image: url(<%= @movies.sample['poster_url'] %>)">
         <li>
@@ -12,5 +12,5 @@
       </div>
     <% end %>
   </ul>
-  <button class="btn btn-outline-primary" data-action="click->list#expand">Show more</button>
+  <button class="btn btn-outline-info btn-lg " data-action="click->list#expand">Show more</button>
 </div>
