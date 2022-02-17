@@ -1,11 +1,16 @@
-<h1>All Lists</h1>
-<ul class="d-flex gap-2 justify-content-between ps-0">
-  <% @lists.each do |list| %>
-    <div class="card text-center d-flex align-items-center justify-content-center overlay" style="min-height: 200px; width: 250px; background-image: url(<%= list.movies.first.poster_url %>); background-position: center; background-size: cover">
-      <li>
-        <%= link_to list.name, list_path(list), class: "h2 text-light text-decoration-none position-relative z-index-n1" %>
-      </li>
-    </div>
-  <% end %>
-</ul>
-<%= link_to "Add list", new_list_path, class: "btn btn-primary" %>
+<div class="d-flex align-center mb-4">
+  <h1 class="text-light">All Lists(<%= @lists.count %>)</h1>
+  <%= link_to "Add list", new_list_path, class: "btn btn-primary ms-3 align-self-center" %>
+</div>
+<div data-controller="list">
+  <ul class="cards ps-0" data-target="list.grid">
+    <% @lists.each do |list| %>
+      <div class="card text-center d-flex align-items-center justify-content-center overlay p-0" style="min-height: 200px; width: 250px; background-image: url(<%= @movies.sample['poster_url'] %>)">
+        <li>
+          <%= link_to list.name, list_path(list), class: "h2 text-light text-decoration-none position-relative z-index-n d-inline-block h-100 px-3 pt-5 pb-4" %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+  <button class="btn btn-outline-primary" data-action="click->list#expand">Show more</button>
+</div>

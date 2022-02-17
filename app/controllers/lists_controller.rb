@@ -1,6 +1,9 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @movies = Movie.all
+    @lists = List.where('name ILIKE ?', "%#{params[:search]}%") if params[:search]
+    @lists = List.where('name ILIKE ?', "%#{params[:search]}%") if params[:search] && params[:search] != ''
   end
 
   def show
