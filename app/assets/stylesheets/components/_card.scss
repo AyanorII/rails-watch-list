@@ -18,7 +18,7 @@
   list-style: none;
   min-height: 620px;
   overflow: hidden;
-  padding: 2rem 2rem;
+  padding: 2rem 1.25rem;
   position: relative;
   word-break: break-all;
   transition: all 0.25s;
@@ -50,13 +50,14 @@
   list-style: none;
   transition: all 0.5s;
   overflow: hidden;
+  height: 100vh;
 
   li {
     padding: 0;
   }
 
   &.wide {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     overflow: unset;
   }
 
@@ -71,14 +72,10 @@
 }
 
 .bottom-info {
-  display: grid;
-  grid-template-columns: 1fr 0.75fr;
-  grid-template-rows: 50px;
-  align-items: start;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  // white-space: nowrap;
+  white-space: nowrap;
 
   a {
     justify-self: flex-end;
@@ -89,5 +86,30 @@
   blockquote {
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+}
+
+.banner {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 15px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    mix-blend-mode: multiply;
+  }
+
+  div {
+    position: relative;
+    z-index: 1;
   }
 }

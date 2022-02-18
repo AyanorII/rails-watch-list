@@ -1,5 +1,5 @@
 <div class="text-light">
-  <h1>Add new bookmark</h1>
+  <h1 class="mb-3">Add new bookmark</h1>
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
     <%= f.association :list, selected: params[:list_id] %>

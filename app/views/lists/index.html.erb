@@ -5,7 +5,7 @@
 <div data-controller="list" class="text-center">
   <ul class="cards ps-0 collapsed" data-target="list.grid">
     <% @lists.each do |list| %>
-      <div class="card text-center d-flex align-items-center justify-content-center overlay p-0" style="min-height: 200px; width: 250px; background-image: url(<%= @movies.sample['poster_url'] %>)">
+      <div class="card text-center d-flex align-items-center justify-content-center overlay p-0" style="min-height: 200px; width: 250px; background-image: url(<%= list.photo.attached? ? (cl_image_path list.photo.key) : @movies.sample['poster_url'] %>)">
         <li>
           <%= link_to list.name, list_path(list), class: "h2 text-light text-decoration-none position-relative z-index-n d-inline-block h-100 px-3 pt-5 pb-4" %>
         </li>
